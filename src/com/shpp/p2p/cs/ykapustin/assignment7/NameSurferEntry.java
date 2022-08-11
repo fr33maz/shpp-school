@@ -8,10 +8,10 @@ package com.shpp.p2p.cs.ykapustin.assignment7;
  * of that name for each decade stretching back to 1900.
  */
 
-import java.util.*;
-
 public class NameSurferEntry implements NameSurferConstants {
-
+    private String name;
+    private String[] decade;
+    private StringBuilder toReturn;
 	/* Constructor: NameSurferEntry(line) */
 
     /**
@@ -21,7 +21,16 @@ public class NameSurferEntry implements NameSurferConstants {
      * decade.
      */
     public NameSurferEntry(String line) {
-        // You fill this in //
+        String[] person = line.split("\\s+");
+        this.name = person[0];
+        decade = new String[person.length - 1];
+        toReturn = new StringBuilder(name);
+        toReturn.append(" [");
+        for(int i = 1; i < person.length; i++) {
+            decade[i-1] = person[i];
+            toReturn.append(decade[i]).append(" ");
+        }
+        toReturn.replace(toReturn.length() -1, toReturn.length(),"]");
     }
 
 	/* Method: getName() */
@@ -30,8 +39,7 @@ public class NameSurferEntry implements NameSurferConstants {
      * Returns the name associated with this entry.
      */
     public String getName() {
-        // You need to turn this stub into a real implementation //
-        return null;
+        return name;
     }
 
 	/* Method: getRank(decade) */
@@ -44,8 +52,7 @@ public class NameSurferEntry implements NameSurferConstants {
      * not appear in a decade, the rank value is 0.
      */
     public int getRank(int decade) {
-        // You need to turn this stub into a real implementation //
-        return 0;
+        return Integer.parseInt(this.decade[decade]);
     }
 
 	/* Method: toString() */
@@ -55,8 +62,7 @@ public class NameSurferEntry implements NameSurferConstants {
      * NameSurferEntry.
      */
     public String toString() {
-        // You need to turn this stub into a real implementation //
-        return "";
+        return String.valueOf(toReturn);
     }
 }
 
