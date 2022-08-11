@@ -6,9 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="3ee5d3d7-060d-41cc-acd8-9dd26ad650fc" name="Changes" comment="NameSurfer class updated with simple functionality">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/namesurfer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/namesurfer.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/shpp/p2p/cs/ykapustin/assignment7/NameSurfer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/shpp/p2p/cs/ykapustin/assignment7/NameSurfer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/shpp/p2p/cs/ykapustin/assignment7/NameSurferConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/shpp/p2p/cs/ykapustin/assignment7/NameSurferConstants.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +95,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660227264522</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="NameSurfer class updated with simple functionality">
+      <created>1660227386751</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1660227386751</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
