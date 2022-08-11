@@ -9,7 +9,7 @@ package com.shpp.p2p.cs.ykapustin.assignment7;
  */
 
 public interface NameSurferConstants {
-
+    public static final int TEXT_FIELD_SIZE = 30;
     /**
      * The width of the application window
      */

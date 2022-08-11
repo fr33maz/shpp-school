@@ -7,14 +7,15 @@ package com.shpp.p2p.cs.ykapustin.assignment7;
  * the baby-name database described in the assignment handout.
  */
 
-import acm.program.*;
 import com.shpp.cs.a.simple.SimpleProgram;
 
-import java.awt.event.*;
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.KeyEvent;
+import java.util.Objects;
 
 public class NameSurfer extends SimpleProgram implements NameSurferConstants {
-
+    JTextField jtf = new JTextField(TEXT_FIELD_SIZE);
 	/* Method: init() */
 
     /**
@@ -22,7 +23,12 @@ public class NameSurfer extends SimpleProgram implements NameSurferConstants {
      * and initializing the interactors at the top of the window.
      */
     public void init() {
-        // You fill this in, along with any helper methods //
+        add(new JLabel("Name:"), NORTH);
+        add(jtf, NORTH);
+        jtf.addKeyListener(this);
+        add(new JButton("Graph"), NORTH);
+        add(new JButton("Clear"), NORTH);
+        addActionListeners();
     }
 
 	/* Method: actionPerformed(e) */
@@ -33,6 +39,16 @@ public class NameSurfer extends SimpleProgram implements NameSurferConstants {
      * button actions.
      */
     public void actionPerformed(ActionEvent e) {
-        // You fill this in //
+        if (Objects.equals(e.getActionCommand(), "Graph")) {
+            System.out.println("Graph pressed");
+        } else {
+            System.out.println("Clear pressed");
+        }
+    }
+    public void keyTyped(KeyEvent e) {
+        if(e.getKeyChar() == '\n') {
+            System.out.println(jtf.getText());
+        }
+
     }
 }
