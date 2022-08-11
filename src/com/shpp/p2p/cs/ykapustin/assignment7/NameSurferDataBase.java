@@ -11,18 +11,34 @@ package com.shpp.p2p.cs.ykapustin.assignment7;
  * and "ERIC" are the same names.
  */
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.HashMap;
+
 public class NameSurferDataBase implements NameSurferConstants {
 
-	/* Constructor: NameSurferDataBase(filename) */
-
+    HashMap<String, String> nameHash = new HashMap<>();
     /**
      * Creates a new NameSurferDataBase and initializes it using the
      * data in the specified file.  The constructor throws an error
      * exception if the requested file does not exist or if an error
      * occurs as the file is being read.
      */
-    public NameSurferDataBase(String filename) {
-        // You fill this in //
+    public NameSurferDataBase(String filename) throws IOException {
+        BufferedReader bf = new BufferedReader(new FileReader(filename));
+        String s = bf.readLine();
+        String name = "";
+        while (s != null) {
+            for(int i = 0; i < s.length(); i++) {
+                name+=s.charAt(i);
+                if(s.charAt(i+1) == ' ') {
+                    break;
+                }
+            }
+            nameHash.put(name, s);
+            s = bf.readLine();
+        }
     }
 	
 	/* Method: findEntry(name) */
@@ -33,8 +49,8 @@ public class NameSurferDataBase implements NameSurferConstants {
      * method returns null.
      */
     public NameSurferEntry findEntry(String name) {
-        // You need to turn this stub into a real implementation //
-        return null;
+        String personsData = nameHash.get(name);
+        return personsData != null ? new NameSurferEntry(name) : null;
     }
 }
 

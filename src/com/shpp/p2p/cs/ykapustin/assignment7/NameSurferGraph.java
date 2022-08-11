@@ -9,11 +9,10 @@ package com.shpp.p2p.cs.ykapustin.assignment7;
  * or the window is resized.
  */
 
-import acm.graphics.*;
+import acm.graphics.GCanvas;
 
-import java.awt.event.*;
-import java.util.*;
-import java.awt.*;
+import java.awt.event.ComponentEvent;
+import java.awt.event.ComponentListener;
 
 public class NameSurferGraph extends GCanvas
         implements NameSurferConstants, ComponentListener {
@@ -23,7 +22,7 @@ public class NameSurferGraph extends GCanvas
      */
     public NameSurferGraph() {
         addComponentListener(this);
-        // You fill in the rest //
+
     }
 
 

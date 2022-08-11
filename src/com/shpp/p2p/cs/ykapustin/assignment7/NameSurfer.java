@@ -17,6 +17,7 @@ import java.util.Objects;
 
 public class NameSurfer extends SimpleProgram implements NameSurferConstants {
     JTextField jtf = new JTextField(TEXT_FIELD_SIZE);
+    NameSurferGraph nameSurferGraph;
 	/* Method: init() */
 
     /**
@@ -30,6 +31,8 @@ public class NameSurfer extends SimpleProgram implements NameSurferConstants {
         add(new JButton("Graph"), NORTH);
         add(new JButton("Clear"), NORTH);
         addActionListeners();
+        nameSurferGraph = new NameSurferGraph();
+        add(nameSurferGraph);
     }
 
 	/* Method: actionPerformed(e) */
