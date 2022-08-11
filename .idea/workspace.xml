@@ -4,14 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3ee5d3d7-060d-41cc-acd8-9dd26ad650fc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/namesurfer.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/shpp/p2p/cs/ykapustin/assignment7/NameSurfer.java" afterDir="false" />
+    <list default="true" id="3ee5d3d7-060d-41cc-acd8-9dd26ad650fc" name="Changes" comment="test">
+      <change afterPath="$PROJECT_DIR$/src/com/shpp/p2p/cs/ykapustin/assignment7/NameSurferConstants.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/shpp/p2p/cs/ykapustin/assignment7/NameSurferDataBase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/shpp/p2p/cs/ykapustin/assignment7/NameSurferEntry.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/shpp/p2p/cs/ykapustin/assignment7/NameSurferGraph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +41,8 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "application.passwordSafe"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -55,6 +54,14 @@
       <option name="presentableId" value="Default" />
       <updated>1660202437637</updated>
     </task>
+    <task id="LOCAL-00001" summary="test">
+      <created>1660204344972</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1660204344972</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -67,5 +74,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="test" />
+    <option name="LAST_COMMIT_MESSAGE" value="test" />
   </component>
 </project>
