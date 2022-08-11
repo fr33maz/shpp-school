@@ -12,6 +12,7 @@ import com.shpp.cs.a.simple.SimpleProgram;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
+import java.util.Locale;
 import java.util.Objects;
 
 public class NameSurfer extends SimpleProgram implements NameSurferConstants {
@@ -40,7 +41,7 @@ public class NameSurfer extends SimpleProgram implements NameSurferConstants {
      */
     public void actionPerformed(ActionEvent e) {
         if (Objects.equals(e.getActionCommand(), "Graph")) {
-            System.out.println("Graph pressed");
+            System.out.println(jtf.getText().toLowerCase(Locale.ROOT));
         } else {
             System.out.println("Clear pressed");
         }
