@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3ee5d3d7-060d-41cc-acd8-9dd26ad650fc" name="Changes" comment="some basic functionality in dataBase class">
-      <change beforePath="$PROJECT_DIR$/src/com/shpp/p2p/cs/ykapustin/assignment7/NameSurferDataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/shpp/p2p/cs/ykapustin/assignment7/NameSurferDataBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/shpp/p2p/cs/ykapustin/assignment7/NameSurferConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/shpp/p2p/cs/ykapustin/assignment7/NameSurferConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/shpp/p2p/cs/ykapustin/assignment7/NameSurferGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/shpp/p2p/cs/ykapustin/assignment7/NameSurferGraph.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,7 +39,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../../../../srcs/shpp-cs-java-lib.jar" />
+    <property name="last_opened_file_path" value="$USER_HOME$/../../../../../srcs/shpp-cs-java-lib.jar" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />

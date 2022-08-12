@@ -10,6 +10,8 @@ package com.shpp.p2p.cs.ykapustin.assignment7;
  */
 
 import acm.graphics.GCanvas;
+import acm.graphics.GLabel;
+import acm.graphics.GLine;
 
 import java.awt.event.ComponentEvent;
 import java.awt.event.ComponentListener;
@@ -22,6 +24,14 @@ public class NameSurferGraph extends GCanvas
      */
     public NameSurferGraph() {
         addComponentListener(this);
+        int decade = START_DECADE;
+        add(new GLine(0,25,APPLICATION_WIDTH,25));
+        add(new GLine(0,APPLICATION_HEIGHT - HEADER_SIZE - 15,APPLICATION_WIDTH,APPLICATION_HEIGHT - HEADER_SIZE - 15));
+        for(int i = 0; i < APPLICATION_WIDTH; i+= SPACE_BETWEEN_LINES) {
+            add(new GLine(i,0,i,APPLICATION_HEIGHT));
+            add(new GLabel(Integer.toString(decade),i+1,APPLICATION_HEIGHT - HEADER_SIZE));
+            decade+=10;
+        }
 
     }
 
