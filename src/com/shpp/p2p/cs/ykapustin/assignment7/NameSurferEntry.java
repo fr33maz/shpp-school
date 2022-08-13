@@ -10,7 +10,7 @@ package com.shpp.p2p.cs.ykapustin.assignment7;
 
 public class NameSurferEntry implements NameSurferConstants {
     private String name;
-    private String[] decade;
+    private int[] decade;
     private StringBuilder toReturn;
 	/* Constructor: NameSurferEntry(line) */
 
@@ -23,11 +23,11 @@ public class NameSurferEntry implements NameSurferConstants {
     public NameSurferEntry(String line) {
         String[] person = line.split("\\s");
         this.name = person[0];
-        decade = new String[person.length - 1];
+        decade = new int[person.length - 1];
         toReturn = new StringBuilder(name);
         toReturn.append(" [");
         for(int i = 1; i < person.length - 1; i++) {
-            decade[i-1] = person[i];
+            decade[i-1] = Integer.parseInt(person[i]);
             toReturn.append(decade[i]).append(" ");
         }
         toReturn.replace(toReturn.length() -1, toReturn.length(),"]");
@@ -53,8 +53,7 @@ public class NameSurferEntry implements NameSurferConstants {
      * not appear in a decade, the rank value is 0.
      */
     public int getRank(int decade) {
-
-        return Integer.parseInt(this.decade[decade]);
+        return this.decade[decade];
     }
 
 	/* Method: toString() */

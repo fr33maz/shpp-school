@@ -48,19 +48,23 @@ public class NameSurferGraph extends GCanvas
             NameSurferEntry person = persons.get(i);
             double highest = 0;
             int[] statics = new int[12];
-            for(int j = 0; j < NUMBER_OF_DECADES; j++) {
-                statics[j] = person.getRank(j);
-                if(highest < person.getRank(j)) {
-                    highest = person.getRank(j);
-                }
+            for(int j = 0; j < statics.length; j++) {
+                   statics[j] = person.getRank(j);
+                       System.out.println(person.getRank(j));
+                   if(highest < person.getRank(j)) {
+                       highest = person.getRank(j);
+               }
             }
             int spaceBetweenLines = getWidth() / 12 + 1;
             highest *=.01;
-            for(int j = 0; j < getWidth(); j+= spaceBetweenLines) {
+                int w = 0;
+            for(int j = 0; j < statics.length; j++) {
                 double location = (statics[j] / highest) * .01;
-                add(new GOval(j,getHeight() * highest, 50,50));
+                add(new GOval(w,getHeight() * location, 50,50));
+                w+=spaceBetweenLines;
             }
         }
+        System.out.println("not failed in allpersons");
     }
 
 
@@ -89,6 +93,7 @@ public class NameSurferGraph extends GCanvas
     public void addEntry(NameSurferEntry entry) {
         if(!persons.contains(entry)) {
             persons.add(entry);
+            System.out.println(entry.getRank(11));
         }
         update();
     }
