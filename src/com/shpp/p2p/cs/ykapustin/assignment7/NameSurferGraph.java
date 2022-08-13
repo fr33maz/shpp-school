@@ -44,9 +44,9 @@ public class NameSurferGraph extends GCanvas
     }
 
     private void addAllPersons() {
+            double highest = 1000 - 15;
         for(int i = 0; i < persons.size(); i++) {
             NameSurferEntry person = persons.get(i);
-            double highest = 0;
             int[] statics = new int[12];
             for(int j = 0; j < statics.length; j++) {
                    statics[j] = person.getRank(j);
