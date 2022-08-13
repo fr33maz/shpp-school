@@ -21,12 +21,12 @@ public class NameSurferEntry implements NameSurferConstants {
      * decade.
      */
     public NameSurferEntry(String line) {
-        String[] person = line.split("\\s+");
+        String[] person = line.split("\\s");
         this.name = person[0];
         decade = new String[person.length - 1];
         toReturn = new StringBuilder(name);
         toReturn.append(" [");
-        for(int i = 1; i < person.length; i++) {
+        for(int i = 1; i < person.length - 1; i++) {
             decade[i-1] = person[i];
             toReturn.append(decade[i]).append(" ");
         }
@@ -39,6 +39,7 @@ public class NameSurferEntry implements NameSurferConstants {
      * Returns the name associated with this entry.
      */
     public String getName() {
+
         return name;
     }
 
@@ -52,6 +53,7 @@ public class NameSurferEntry implements NameSurferConstants {
      * not appear in a decade, the rank value is 0.
      */
     public int getRank(int decade) {
+
         return Integer.parseInt(this.decade[decade]);
     }
 

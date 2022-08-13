@@ -12,12 +12,14 @@ import com.shpp.cs.a.simple.SimpleProgram;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
+import java.io.IOException;
 import java.util.Locale;
 import java.util.Objects;
 
 public class NameSurfer extends SimpleProgram implements NameSurferConstants {
     JTextField jtf = new JTextField(TEXT_FIELD_SIZE);
     NameSurferGraph nameSurferGraph;
+    NameSurferDataBase dataBase;
 	/* Method: init() */
 
     /**
@@ -32,6 +34,11 @@ public class NameSurfer extends SimpleProgram implements NameSurferConstants {
         add(new JButton("Clear"), NORTH);
         addActionListeners();
         nameSurferGraph = new NameSurferGraph();
+        try {
+            dataBase = new NameSurferDataBase(NAMES_DATA_FILE);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         add(nameSurferGraph);
     }
 
@@ -44,9 +51,13 @@ public class NameSurfer extends SimpleProgram implements NameSurferConstants {
      */
     public void actionPerformed(ActionEvent e) {
         if (Objects.equals(e.getActionCommand(), "Graph")) {
-            System.out.println(jtf.getText().toLowerCase(Locale.ROOT));
+            String name = jtf.getText().toLowerCase(Locale.ROOT);
+            nameSurferGraph.addEntry(dataBase.findEntry(name));
+
         } else {
             System.out.println("Clear pressed");
+            nameSurferGraph.removeAll();
+            nameSurferGraph.makeTheSetUp();
         }
     }
     public void keyTyped(KeyEvent e) {

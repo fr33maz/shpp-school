@@ -27,7 +27,7 @@ public class NameSurferDataBase implements NameSurferConstants {
      */
     public NameSurferDataBase(String filename) throws IOException {
         BufferedReader bf = new BufferedReader(new FileReader(filename));
-        String s = bf.readLine();
+        String s = bf.readLine().toLowerCase();
         String name = "";
         while (s != null) {
             for(int i = 0; i < s.length(); i++) {
@@ -36,8 +36,15 @@ public class NameSurferDataBase implements NameSurferConstants {
                     break;
                 }
             }
+
             nameHash.put(name, s);
-            s = bf.readLine();
+            name = "";
+            try {
+                s = bf.readLine().toLowerCase();
+            } catch (NullPointerException e) {
+                break;
+
+            }
         }
     }
 	
@@ -50,7 +57,8 @@ public class NameSurferDataBase implements NameSurferConstants {
      */
     public NameSurferEntry findEntry(String name) {
         String personsData = nameHash.get(name);
-        return personsData != null ? new NameSurferEntry(personsData) : null;
+        System.out.println(personsData + " dataBase");
+        return new NameSurferEntry(personsData);
     }
 }
 
