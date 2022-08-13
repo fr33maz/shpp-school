@@ -57,7 +57,6 @@ public class NameSurferDataBase implements NameSurferConstants {
      */
     public NameSurferEntry findEntry(String name) {
         String personsData = nameHash.get(name);
-        System.out.println(personsData + " dataBase");
         return new NameSurferEntry(personsData);
     }
 }

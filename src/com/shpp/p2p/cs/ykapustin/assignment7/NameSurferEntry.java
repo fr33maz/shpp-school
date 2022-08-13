@@ -23,10 +23,10 @@ public class NameSurferEntry implements NameSurferConstants {
     public NameSurferEntry(String line) {
         String[] person = line.split("\\s");
         this.name = person[0];
-        decade = new int[person.length - 1];
+        decade = new int[person.length];
         toReturn = new StringBuilder(name);
         toReturn.append(" [");
-        for(int i = 1; i < person.length - 1; i++) {
+        for(int i = 1; i < person.length; i++) {
             decade[i-1] = Integer.parseInt(person[i]);
             toReturn.append(decade[i]).append(" ");
         }
