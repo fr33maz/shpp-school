@@ -45,8 +45,6 @@ public interface NameSurferConstants {
      */
     public static final int GRAPH_MARGIN_SIZE = 20;
 
-    public static final int SPACE_BETWEEN_LINES = APPLICATION_WIDTH / 12 + 1;
-
     public static final int HEADER_SIZE = 90;
 
 }

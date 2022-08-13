@@ -17,28 +17,34 @@ import acm.graphics.GOval;
 import java.awt.*;
 import java.awt.event.ComponentEvent;
 import java.awt.event.ComponentListener;
+import java.util.ArrayList;
 
 public class NameSurferGraph extends GCanvas
         implements NameSurferConstants, ComponentListener {
-
+    private ArrayList<NameSurferEntry> persons = new ArrayList<>();
     /**
      * Creates a new NameSurferGraph object that displays the data.
      */
     public NameSurferGraph() {
-        addComponentListener(this);
-        makeTheSetUp();
-
+        update();
     }
 
-    public void makeTheSetUp() {
+    private void makeTheSetUp() {
+        addComponentListener(this);
         int decade = START_DECADE;
-        add(new GLine(0,15,APPLICATION_WIDTH,15));
-        add(new GLine(0,APPLICATION_HEIGHT - HEADER_SIZE - 15,APPLICATION_WIDTH,APPLICATION_HEIGHT - HEADER_SIZE - 15));
-        for(int i = 0; i < APPLICATION_WIDTH; i+= SPACE_BETWEEN_LINES) {
-            add(new GLine(i,0,i,APPLICATION_HEIGHT));
-            add(new GLabel(Integer.toString(decade),i+1,APPLICATION_HEIGHT - HEADER_SIZE));
+        add(new GLine(0,15,getWidth(),15));
+        add(new GLine(0,APPLICATION_HEIGHT - HEADER_SIZE - 15,getWidth(),APPLICATION_HEIGHT - HEADER_SIZE - 15));
+        int spaceBetweenLines = getWidth() / 12 + 1;
+        for(int i = 0; i < getWidth(); i+= spaceBetweenLines) {
+            add(new GLine(i,0,i,getHeight()));
+            add(new GLabel(Integer.toString(decade),i+1,getHeight()));
             decade+=10;
         }
+        addAllPersons();
+    }
+
+    private void addAllPersons() {
+
     }
 
 
@@ -46,8 +52,9 @@ public class NameSurferGraph extends GCanvas
      * Clears the list of name surfer entries stored inside this class.
      */
     public void clear() {
+        persons = new ArrayList<>();
         removeAll();
-        makeTheSetUp();
+        update();
     }
     public void whatever() {
         GOval gOval = new GOval(50,50,50,50);
@@ -64,10 +71,10 @@ public class NameSurferGraph extends GCanvas
      * simply stores the entry; the graph is drawn by calling update.
      */
     public void addEntry(NameSurferEntry entry) {
-        System.out.println(entry.getName());
-        for(int i = 0; i < 11;i++) {
-            System.out.println(entry.getRank(i));
+        if(!persons.contains(entry)) {
+            persons.add(entry);
         }
+        update();
     }
 
 
@@ -79,6 +86,7 @@ public class NameSurferGraph extends GCanvas
      * the size of the canvas changes.
      */
     public void update() {
+        makeTheSetUp();
 
     }
 
@@ -91,7 +99,8 @@ public class NameSurferGraph extends GCanvas
     }
 
     public void componentResized(ComponentEvent e) {
-        update();
+       removeAll();
+       update();
     }
 
     public void componentShown(ComponentEvent e) {
