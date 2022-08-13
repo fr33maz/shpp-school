@@ -46,7 +46,8 @@ public class NameSurferGraph extends GCanvas
      * Clears the list of name surfer entries stored inside this class.
      */
     public void clear() {
-
+        removeAll();
+        makeTheSetUp();
     }
     public void whatever() {
         GOval gOval = new GOval(50,50,50,50);

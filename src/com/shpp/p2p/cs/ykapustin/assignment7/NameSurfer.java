@@ -51,13 +51,12 @@ public class NameSurfer extends SimpleProgram implements NameSurferConstants {
      */
     public void actionPerformed(ActionEvent e) {
         if (Objects.equals(e.getActionCommand(), "Graph")) {
+            nameSurferGraph.whatever();
             String name = jtf.getText().toLowerCase(Locale.ROOT);
             nameSurferGraph.addEntry(dataBase.findEntry(name));
 
         } else {
-            System.out.println("Clear pressed");
-            nameSurferGraph.removeAll();
-            nameSurferGraph.makeTheSetUp();
+            nameSurferGraph.clear();
         }
     }
     public void keyTyped(KeyEvent e) {
