@@ -44,7 +44,23 @@ public class NameSurferGraph extends GCanvas
     }
 
     private void addAllPersons() {
-
+        for(int i = 0; i < persons.size(); i++) {
+            NameSurferEntry person = persons.get(i);
+            double highest = 0;
+            int[] statics = new int[12];
+            for(int j = 0; j < NUMBER_OF_DECADES; j++) {
+                statics[j] = person.getRank(j);
+                if(highest < person.getRank(j)) {
+                    highest = person.getRank(j);
+                }
+            }
+            int spaceBetweenLines = getWidth() / 12 + 1;
+            highest *=.01;
+            for(int j = 0; j < getWidth(); j+= spaceBetweenLines) {
+                double location = (statics[j] / highest) * .01;
+                add(new GOval(j,getHeight() * highest, 50,50));
+            }
+        }
     }
 
 
