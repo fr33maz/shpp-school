@@ -60,11 +60,7 @@ public class NameSurferGraph extends GCanvas
                 double a = aStatic * OPTIMIZATION;
                 double b = getHeight();
                 int yCoordinate = (int) (a * b);
-                if (yCoordinate < getHeight() / 2) {
-                    yCoordinate += HEAD_N_BOTTOM_STEP;
-                } else {
-                    yCoordinate -= HEAD_N_BOTTOM_STEP;
-                }
+                yCoordinate =  yCoordinateCorrection(yCoordinate);
                 addPersonsStatics(person.getName(), Integer.toString(aStatic),
                         xCoordinate, yCoordinate, yCoordinatePrevious, color);
                 yCoordinatePrevious = yCoordinate;
@@ -73,6 +69,15 @@ public class NameSurferGraph extends GCanvas
             }
         }
 
+    }
+
+    private int yCoordinateCorrection(int yCoordinate) {
+        if (yCoordinate < getHeight() / 2) {
+            yCoordinate += HEAD_N_BOTTOM_STEP;
+        } else {
+            yCoordinate -= HEAD_N_BOTTOM_STEP;
+        }
+        return yCoordinate;
     }
 
     private void addPersonsStatics(String personsName, String personsStatics, int xCoordinate,

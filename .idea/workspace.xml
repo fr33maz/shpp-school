@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3ee5d3d7-060d-41cc-acd8-9dd26ad650fc" name="Changes" comment="some update just to be on the safe side">
+    <list default="true" id="3ee5d3d7-060d-41cc-acd8-9dd26ad650fc" name="Changes" comment="almost done">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/shpp/p2p/cs/ykapustin/assignment7/NameSurfer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/shpp/p2p/cs/ykapustin/assignment7/NameSurfer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/shpp/p2p/cs/ykapustin/assignment7/NameSurferEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/shpp/p2p/cs/ykapustin/assignment7/NameSurferEntry.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/shpp/p2p/cs/ykapustin/assignment7/NameSurferGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/shpp/p2p/cs/ykapustin/assignment7/NameSurferGraph.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -164,7 +164,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660483107723</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="almost done">
+      <created>1660487631709</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1660487631709</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -185,6 +192,7 @@
     <MESSAGE value="some NameSurferGraph functionality" />
     <MESSAGE value="something" />
     <MESSAGE value="some update just to be on the safe side" />
-    <option name="LAST_COMMIT_MESSAGE" value="some update just to be on the safe side" />
+    <MESSAGE value="almost done" />
+    <option name="LAST_COMMIT_MESSAGE" value="almost done" />
   </component>
 </project>

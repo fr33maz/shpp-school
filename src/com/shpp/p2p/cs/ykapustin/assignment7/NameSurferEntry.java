@@ -8,6 +8,8 @@ package com.shpp.p2p.cs.ykapustin.assignment7;
  * of that name for each decade stretching back to 1900.
  */
 
+import java.util.Locale;
+
 public class NameSurferEntry implements NameSurferConstants {
     private String name;
     private int[] decade;
@@ -39,8 +41,8 @@ public class NameSurferEntry implements NameSurferConstants {
      * Returns the name associated with this entry.
      */
     public String getName() {
-
-        return name;
+        return new StringBuilder(name).substring(0,1).toUpperCase(Locale.ROOT) +
+                new StringBuilder(name).replace(0,1,"");
     }
 
 	/* Method: getRank(decade) */
