@@ -171,8 +171,8 @@ public class NameSurferGraph extends GCanvas
     }
 
     public void componentResized(ComponentEvent e) {
-        removeAll();
-        update();
+            removeAll();
+            update();
     }
 
     public void componentShown(ComponentEvent e) {
