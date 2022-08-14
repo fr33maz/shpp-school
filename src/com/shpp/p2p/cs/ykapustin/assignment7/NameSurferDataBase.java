@@ -28,17 +28,17 @@ public class NameSurferDataBase implements NameSurferConstants {
     public NameSurferDataBase(String filename) throws IOException {
         BufferedReader bf = new BufferedReader(new FileReader(filename));
         String s = bf.readLine().toLowerCase();
-        String name = "";
-        while (s != null) {
+        StringBuilder name = new StringBuilder();
+        while (true) {
             for(int i = 0; i < s.length(); i++) {
-                name+=s.charAt(i);
+                name.append(s.charAt(i));
                 if(s.charAt(i+1) == ' ') {
                     break;
                 }
             }
 
-            nameHash.put(name, s);
-            name = "";
+            nameHash.put(name.toString(), s);
+            name = new StringBuilder();
             try {
                 s = bf.readLine().toLowerCase();
             } catch (NullPointerException e) {

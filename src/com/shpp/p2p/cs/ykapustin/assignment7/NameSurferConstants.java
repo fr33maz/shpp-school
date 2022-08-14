@@ -30,6 +30,10 @@ public interface NameSurferConstants {
      */
     public static final int START_DECADE = 1900;
 
+    public static final double OPTIMIZATION = .001;
+
+    public static final int HEAD_N_BOTTOM_STEP = 15;
+
     /**
      * The number of decades
      */

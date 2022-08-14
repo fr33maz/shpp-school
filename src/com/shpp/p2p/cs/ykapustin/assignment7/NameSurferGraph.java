@@ -14,7 +14,6 @@ import acm.graphics.GLabel;
 import acm.graphics.GLine;
 import acm.graphics.GOval;
 
-import java.awt.*;
 import java.awt.event.ComponentEvent;
 import java.awt.event.ComponentListener;
 import java.util.ArrayList;
@@ -22,50 +21,93 @@ import java.util.ArrayList;
 public class NameSurferGraph extends GCanvas
         implements NameSurferConstants, ComponentListener {
     private ArrayList<NameSurferEntry> persons = new ArrayList<>();
+
     /**
      * Creates a new NameSurferGraph object that displays the data.
      */
     public NameSurferGraph() {
+
         update();
     }
 
     private void makeTheSetUp() {
         addComponentListener(this);
         int decade = START_DECADE;
-        add(new GLine(0,15,getWidth(),15));
-        add(new GLine(0,APPLICATION_HEIGHT - HEADER_SIZE - 15,getWidth(),APPLICATION_HEIGHT - HEADER_SIZE - 15));
+        add(new GLine(0, HEAD_N_BOTTOM_STEP, getWidth(), HEAD_N_BOTTOM_STEP));
+        add(new GLine(0, getHeight() - HEAD_N_BOTTOM_STEP, getWidth(), getHeight() - HEAD_N_BOTTOM_STEP));
         int spaceBetweenLines = getWidth() / 12 + 1;
-        for(int i = 0; i < getWidth(); i+= spaceBetweenLines) {
-            add(new GLine(i,0,i,getHeight()));
-            add(new GLabel(Integer.toString(decade),i+1,getHeight()));
-            decade+=10;
+        for (int i = 0; i < getWidth(); i += spaceBetweenLines) {
+            add(new GLine(i, 0, i, getHeight()));
+            add(new GLabel(Integer.toString(decade), i + 1, getHeight()));
+            decade += 10;
         }
         addAllPersons();
     }
 
     private void addAllPersons() {
-            double highest = 1000 - 15;
-        for(int i = 0; i < persons.size(); i++) {
-            NameSurferEntry person = persons.get(i);
+
+        for (NameSurferEntry person : persons) {
             int[] statics = new int[12];
-            for(int j = 0; j < statics.length; j++) {
-                   statics[j] = person.getRank(j);
-                   if(highest < person.getRank(j)) {
-                       highest = person.getRank(j);
-               }
+            for (int j = 0; j < statics.length; j++) {
+                statics[j] = person.getRank(j);
             }
             int spaceBetweenLines = getWidth() / 12 + 1;
-            highest *=.01;
-                int w = 0;
-            for(int j = 0; j < statics.length; j++) {
-                double location = (statics[j] / highest) * .01;
-                System.out.print(location + " ");
-                add(new GOval(w,getHeight() * location, 50,50));
-                w+=spaceBetweenLines;
+            int xCoordinate = 0;
+            int yCoordinatePrevious = 0;
+            for (int j = 0; j < statics.length; j++) {
+                double a = statics[j] * OPTIMIZATION;
+                double b = getHeight();
+                int yCoordinate = (int) (a * b);
+                if (yCoordinate < getHeight() / 2) {
+                    yCoordinate += HEAD_N_BOTTOM_STEP;
+                } else {
+                    yCoordinate -= HEAD_N_BOTTOM_STEP;
+                }
+                add(new GOval(xCoordinate, yCoordinate, 2, 2));
+                addPersonsStatics(person.getName(), Integer.toString(statics[j]), xCoordinate, yCoordinate, yCoordinatePrevious);
+                yCoordinatePrevious = yCoordinate;
+                xCoordinate += spaceBetweenLines;
 
             }
         }
 
+    }
+
+    private void addPersonsStatics(String personsName, String personsStatics, int xCoordinate, int yCoordinate, int yCoordinatePrevious) {
+        String size = "SansSerif-Plain-" + getWidth() / 65;
+        int xCoordinateWithSpaceAfterName = xCoordinate + getWidth() / 25;
+        addNewPersonName(personsName, xCoordinate, yCoordinate, size);
+        addNewPersonsStats(personsStatics, xCoordinateWithSpaceAfterName, yCoordinate, size);
+        addStaticsLine(xCoordinate,yCoordinate,yCoordinatePrevious);
+    }
+
+    private void addStaticsLine(int xCoordinate, int yCoordinate, int yCoordinatePrevious) {
+        yCoordinate = coordinateCorrection(yCoordinate);
+        yCoordinatePrevious = coordinateCorrection(yCoordinatePrevious);
+        add(new GLine((xCoordinate- getWidth() / 12.0) -1,yCoordinatePrevious,xCoordinate, yCoordinate));
+    }
+
+
+    private void addNewPersonsStats(String personsStatics, int xCoordinate, int yCoordinate, String size) {
+        yCoordinate = coordinateCorrection(yCoordinate);
+        GLabel gLabel = new GLabel(personsStatics,xCoordinate,yCoordinate);
+        gLabel.setFont(size);
+        add(gLabel);
+
+    }
+
+    private int coordinateCorrection(int yCoordinate) {
+        if(yCoordinate == HEAD_N_BOTTOM_STEP) {
+            yCoordinate = getHeight() - HEAD_N_BOTTOM_STEP;
+        }
+        return yCoordinate;
+    }
+
+    private void addNewPersonName(String personsName, int xCoordinate, int yCoordinate, String size) {
+        yCoordinate = coordinateCorrection(yCoordinate);
+        GLabel gLabel = new GLabel(personsName, xCoordinate, yCoordinate);
+        gLabel.setFont(size);
+        add(gLabel);
     }
 
 
@@ -77,14 +119,9 @@ public class NameSurferGraph extends GCanvas
         removeAll();
         update();
     }
-    public void whatever() {
-        GOval gOval = new GOval(50,50,50,50);
-        gOval.setFillColor(Color.red);
-        gOval.setFilled(true);
-        add(gOval);
-    }
 
-	/* Method: addEntry(entry) */
+
+    /* Method: addEntry(entry) */
 
     /**
      * Adds a new NameSurferEntry to the list of entries on the display.
@@ -92,7 +129,7 @@ public class NameSurferGraph extends GCanvas
      * simply stores the entry; the graph is drawn by calling update.
      */
     public void addEntry(NameSurferEntry entry) {
-        if(!persons.contains(entry)) {
+        if (!persons.contains(entry)) {
             persons.add(entry);
         }
         update();
@@ -108,7 +145,6 @@ public class NameSurferGraph extends GCanvas
      */
     public void update() {
         makeTheSetUp();
-
     }
 
 
@@ -120,8 +156,8 @@ public class NameSurferGraph extends GCanvas
     }
 
     public void componentResized(ComponentEvent e) {
-       removeAll();
-       update();
+        removeAll();
+        update();
     }
 
     public void componentShown(ComponentEvent e) {
