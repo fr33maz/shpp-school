@@ -12,8 +12,8 @@ package com.shpp.p2p.cs.ykapustin.assignment7;
 import acm.graphics.GCanvas;
 import acm.graphics.GLabel;
 import acm.graphics.GLine;
-import acm.graphics.GOval;
 
+import java.awt.*;
 import java.awt.event.ComponentEvent;
 import java.awt.event.ComponentListener;
 import java.util.ArrayList;
@@ -47,6 +47,8 @@ public class NameSurferGraph extends GCanvas
     private void addAllPersons() {
 
         for (NameSurferEntry person : persons) {
+            Color color = new Color((int) (Math.random() * 255), (int) (Math.random() * 255), (int) (Math.random() * 255));
+
             int[] statics = new int[12];
             for (int j = 0; j < statics.length; j++) {
                 statics[j] = person.getRank(j);
@@ -54,8 +56,8 @@ public class NameSurferGraph extends GCanvas
             int spaceBetweenLines = getWidth() / 12 + 1;
             int xCoordinate = 0;
             int yCoordinatePrevious = 0;
-            for (int j = 0; j < statics.length; j++) {
-                double a = statics[j] * OPTIMIZATION;
+            for (int aStatic : statics) {
+                double a = aStatic * OPTIMIZATION;
                 double b = getHeight();
                 int yCoordinate = (int) (a * b);
                 if (yCoordinate < getHeight() / 2) {
@@ -63,8 +65,8 @@ public class NameSurferGraph extends GCanvas
                 } else {
                     yCoordinate -= HEAD_N_BOTTOM_STEP;
                 }
-                add(new GOval(xCoordinate, yCoordinate, 2, 2));
-                addPersonsStatics(person.getName(), Integer.toString(statics[j]), xCoordinate, yCoordinate, yCoordinatePrevious);
+                addPersonsStatics(person.getName(), Integer.toString(aStatic),
+                        xCoordinate, yCoordinate, yCoordinatePrevious, color);
                 yCoordinatePrevious = yCoordinate;
                 xCoordinate += spaceBetweenLines;
 
@@ -73,24 +75,30 @@ public class NameSurferGraph extends GCanvas
 
     }
 
-    private void addPersonsStatics(String personsName, String personsStatics, int xCoordinate, int yCoordinate, int yCoordinatePrevious) {
-        String size = "SansSerif-Plain-" + getWidth() / 65;
-        int xCoordinateWithSpaceAfterName = xCoordinate + getWidth() / 25;
-        addNewPersonName(personsName, xCoordinate, yCoordinate, size);
-        addNewPersonsStats(personsStatics, xCoordinateWithSpaceAfterName, yCoordinate, size);
-        addStaticsLine(xCoordinate,yCoordinate,yCoordinatePrevious);
+    private void addPersonsStatics(String personsName, String personsStatics, int xCoordinate,
+                                   int yCoordinate, int yCoordinatePrevious,Color color) {
+        String size = "default-" + getWidth() / 85;
+        int step = 1 + addNewPersonName(personsName, xCoordinate, yCoordinate, size,color);
+        addNewPersonsStats(personsStatics, xCoordinate, yCoordinate, size, step,color);
+        addStaticsLine(xCoordinate,yCoordinate,yCoordinatePrevious,color);
     }
 
-    private void addStaticsLine(int xCoordinate, int yCoordinate, int yCoordinatePrevious) {
+    private void addStaticsLine(int xCoordinate, int yCoordinate, int yCoordinatePrevious, Color color) {
         yCoordinate = coordinateCorrection(yCoordinate);
         yCoordinatePrevious = coordinateCorrection(yCoordinatePrevious);
-        add(new GLine((xCoordinate- getWidth() / 12.0) -1,yCoordinatePrevious,xCoordinate, yCoordinate));
+        GLine gLine = new GLine(xCoordinate - getWidth() / NUMBER_OF_DECADES -1,yCoordinatePrevious,xCoordinate, yCoordinate);
+        gLine.setColor(color);
+        add(gLine);
     }
 
 
-    private void addNewPersonsStats(String personsStatics, int xCoordinate, int yCoordinate, String size) {
+    private void addNewPersonsStats(String personsStatics, int xCoordinate, int yCoordinate, String size,int step,Color color) {
         yCoordinate = coordinateCorrection(yCoordinate);
-        GLabel gLabel = new GLabel(personsStatics,xCoordinate,yCoordinate);
+        if(personsStatics.equals("0")) {
+            personsStatics = "*";
+        }
+        GLabel gLabel = new GLabel(personsStatics,xCoordinate + step,yCoordinate);
+        gLabel.setColor(color);
         gLabel.setFont(size);
         add(gLabel);
 
@@ -103,11 +111,13 @@ public class NameSurferGraph extends GCanvas
         return yCoordinate;
     }
 
-    private void addNewPersonName(String personsName, int xCoordinate, int yCoordinate, String size) {
+    private int addNewPersonName(String personsName, int xCoordinate, int yCoordinate, String size, Color color) {
         yCoordinate = coordinateCorrection(yCoordinate);
         GLabel gLabel = new GLabel(personsName, xCoordinate, yCoordinate);
         gLabel.setFont(size);
+        gLabel.setColor(color);
         add(gLabel);
+        return (int) gLabel.getWidth();
     }
 
 

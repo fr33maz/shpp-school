@@ -54,14 +54,14 @@ public class NameSurfer extends SimpleProgram implements NameSurferConstants {
             String name = jtf.getText().toLowerCase(Locale.ROOT);
             nameSurferGraph.addEntry(dataBase.findEntry(name));
 
-
         } else {
             nameSurferGraph.clear();
         }
     }
     public void keyTyped(KeyEvent e) {
         if(e.getKeyChar() == '\n') {
-            System.out.println(jtf.getText());
+            String name = jtf.getText().toLowerCase(Locale.ROOT);
+            nameSurferGraph.addEntry(dataBase.findEntry(name));
         }
 
     }

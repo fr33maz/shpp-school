@@ -6,8 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="3ee5d3d7-060d-41cc-acd8-9dd26ad650fc" name="Changes" comment="some update just to be on the safe side">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/shpp/p2p/cs/ykapustin/assignment7/NameSurferConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/shpp/p2p/cs/ykapustin/assignment7/NameSurferConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/shpp/p2p/cs/ykapustin/assignment7/NameSurferDataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/shpp/p2p/cs/ykapustin/assignment7/NameSurferDataBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/shpp/p2p/cs/ykapustin/assignment7/NameSurfer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/shpp/p2p/cs/ykapustin/assignment7/NameSurfer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/shpp/p2p/cs/ykapustin/assignment7/NameSurferGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/shpp/p2p/cs/ykapustin/assignment7/NameSurferGraph.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -158,7 +157,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660405682016</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="some update just to be on the safe side">
+      <created>1660483107723</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1660483107723</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
