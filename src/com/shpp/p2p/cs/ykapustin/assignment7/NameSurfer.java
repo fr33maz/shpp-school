@@ -20,7 +20,7 @@ public class NameSurfer extends SimpleProgram implements NameSurferConstants {
     JTextField jtf = new JTextField(TEXT_FIELD_SIZE);
     NameSurferGraph nameSurferGraph;
     NameSurferDataBase dataBase;
-	/* Method: init() */
+    /* Method: init() */
 
     /**
      * This method has the responsibility for reading in the data base
@@ -42,7 +42,7 @@ public class NameSurfer extends SimpleProgram implements NameSurferConstants {
         add(nameSurferGraph);
     }
 
-	/* Method: actionPerformed(e) */
+    /* Method: actionPerformed(e) */
 
     /**
      * This class is responsible for detecting when the buttons are
@@ -51,18 +51,23 @@ public class NameSurfer extends SimpleProgram implements NameSurferConstants {
      */
     public void actionPerformed(ActionEvent e) {
         if (Objects.equals(e.getActionCommand(), "Graph")) {
-            String name = jtf.getText().toLowerCase(Locale.ROOT);
-            nameSurferGraph.addEntry(dataBase.findEntry(name));
-
+            findPerson(jtf.getText().toLowerCase());
         } else {
             nameSurferGraph.clear();
         }
     }
-    public void keyTyped(KeyEvent e) {
-        if(e.getKeyChar() == '\n') {
-            String name = jtf.getText().toLowerCase(Locale.ROOT);
-            nameSurferGraph.addEntry(dataBase.findEntry(name));
-        }
 
+    private void findPerson(String name) {
+        try {
+            nameSurferGraph.addEntry(dataBase.findEntry(name));
+        } catch (NullPointerException n) {
+            System.out.println("Unable to find person with name: " + jtf.getText());
+        }
+    }
+
+    public void keyTyped(KeyEvent e) {
+        if (e.getKeyChar() == '\n') {
+            findPerson(jtf.getText().toLowerCase(Locale.ROOT));
+        }
     }
 }

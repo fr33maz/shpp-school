@@ -91,7 +91,7 @@ public class NameSurferGraph extends GCanvas
     private void addStaticsLine(int xCoordinate, int yCoordinate, int yCoordinatePrevious, Color color) {
         yCoordinate = coordinateCorrection(yCoordinate);
         yCoordinatePrevious = coordinateCorrection(yCoordinatePrevious);
-        GLine gLine = new GLine(xCoordinate - getWidth() / NUMBER_OF_DECADES -1,yCoordinatePrevious,xCoordinate, yCoordinate);
+        GLine gLine = new GLine(xCoordinate - getWidth() / NDECADES -1,yCoordinatePrevious,xCoordinate, yCoordinate);
         gLine.setColor(color);
         add(gLine);
     }

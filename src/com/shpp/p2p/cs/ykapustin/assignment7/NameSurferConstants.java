@@ -48,7 +48,5 @@ public interface NameSurferConstants {
      * The number of pixels to reserve at the top and bottom
      */
     public static final int GRAPH_MARGIN_SIZE = 20;
-    public static final int NUMBER_OF_DECADES = 12;
-    public static final int HEADER_SIZE = 90;
 
 }
