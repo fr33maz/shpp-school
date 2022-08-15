@@ -11,6 +11,7 @@ package com.shpp.p2p.cs.ykapustin.assignment7;
  * and "ERIC" are the same names.
  */
 
+import java.awt.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -18,7 +19,9 @@ import java.util.HashMap;
 
 public class NameSurferDataBase implements NameSurferConstants {
 
-    HashMap<String, String> nameHash = new HashMap<>();
+    HashMap<String, String> peoplesData = new HashMap<>();
+    HashMap<String, Color> color = new HashMap<>();
+
     /**
      * Creates a new NameSurferDataBase and initializes it using the
      * data in the specified file.  The constructor throws an error
@@ -26,29 +29,29 @@ public class NameSurferDataBase implements NameSurferConstants {
      * occurs as the file is being read.
      */
     public NameSurferDataBase(String filename) throws IOException {
+
         BufferedReader bf = new BufferedReader(new FileReader(filename));
-        String s = bf.readLine().toLowerCase();
+        String lineFromTheFile = bf.readLine().toLowerCase();
         StringBuilder name = new StringBuilder();
+
         while (true) {
-            for(int i = 0; i < s.length(); i++) {
-                name.append(s.charAt(i));
-                if(s.charAt(i+1) == ' ') {
+            for(int i = 0; i < lineFromTheFile.length(); i++) {
+                name.append(lineFromTheFile.charAt(i));
+                if(lineFromTheFile.charAt(i+1) == ' ') {
                     break;
                 }
             }
 
-            nameHash.put(name.toString(), s);
+            peoplesData.put(name.toString(), lineFromTheFile);
             name = new StringBuilder();
             try {
-                s = bf.readLine().toLowerCase();
+                lineFromTheFile = bf.readLine().toLowerCase();
             } catch (NullPointerException e) {
                 break;
 
             }
         }
     }
-	
-	/* Method: findEntry(name) */
 
     /**
      * Returns the NameSurferEntry associated with this name, if one
@@ -56,8 +59,8 @@ public class NameSurferDataBase implements NameSurferConstants {
      * method returns null.
      */
     public NameSurferEntry findEntry(String name) {
-        String personsData = nameHash.get(name);
+        String personsData = peoplesData.get(name);
         return new NameSurferEntry(personsData);
     }
-}
 
+}

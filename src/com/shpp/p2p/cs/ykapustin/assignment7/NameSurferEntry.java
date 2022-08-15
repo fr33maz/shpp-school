@@ -1,20 +1,14 @@
 package com.shpp.p2p.cs.ykapustin.assignment7;
 
-/*
- * File: NameSurferEntry.java
- * --------------------------
- * This class represents a single entry in the database.  Each
- * NameSurferEntry contains a name and a list giving the popularity
- * of that name for each decade stretching back to 1900.
- */
-
+import java.awt.*;
 import java.util.Locale;
 
 public class NameSurferEntry implements NameSurferConstants {
-    private String name;
-    private int[] decade;
-    private StringBuilder toReturn;
-	/* Constructor: NameSurferEntry(line) */
+
+    private final String name;
+    private final int[] decade;
+    private final Color color;
+    private final StringBuilder toReturn;
 
     /**
      * Creates a new NameSurferEntry from a data line as it appears
@@ -26,16 +20,16 @@ public class NameSurferEntry implements NameSurferConstants {
         String[] person = line.split("\\s");
         this.name = person[0];
         decade = new int[person.length];
-        toReturn = new StringBuilder(name);
+        toReturn = new StringBuilder(this.name);
         toReturn.append(" [");
         for(int i = 1; i < person.length; i++) {
             decade[i-1] = Integer.parseInt(person[i]);
             toReturn.append(decade[i]).append(" ");
         }
         toReturn.replace(toReturn.length() -1, toReturn.length(),"]");
-    }
+        color = new Color((int) (Math.random() * 255), (int) (Math.random() * 255), (int) (Math.random() * 255));
 
-	/* Method: getName() */
+    }
 
     /**
      * Returns the name associated with this entry.
@@ -44,8 +38,6 @@ public class NameSurferEntry implements NameSurferConstants {
         return new StringBuilder(name).substring(0,1).toUpperCase(Locale.ROOT) +
                 new StringBuilder(name).replace(0,1,"");
     }
-
-	/* Method: getRank(decade) */
 
     /**
      * Returns the rank associated with an entry for a particular
@@ -58,7 +50,12 @@ public class NameSurferEntry implements NameSurferConstants {
         return this.decade[decade];
     }
 
-	/* Method: toString() */
+    /**
+     * Return unique color of particular person
+     */
+    public Color getColor() {
+        return color;
+    }
 
     /**
      * Returns a string that makes it easy to see the value of a
@@ -68,4 +65,3 @@ public class NameSurferEntry implements NameSurferConstants {
         return String.valueOf(toReturn);
     }
 }
-

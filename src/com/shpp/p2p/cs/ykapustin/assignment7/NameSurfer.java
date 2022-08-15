@@ -1,12 +1,5 @@
 package com.shpp.p2p.cs.ykapustin.assignment7;
 
-/*
- * File: NameSurfer.java
- * ---------------------
- * When it is finished, this program will implements the viewer for
- * the baby-name database described in the assignment handout.
- */
-
 import com.shpp.cs.a.simple.SimpleProgram;
 
 import javax.swing.*;
@@ -17,10 +10,10 @@ import java.util.Locale;
 import java.util.Objects;
 
 public class NameSurfer extends SimpleProgram implements NameSurferConstants {
+
     JTextField jtf = new JTextField(TEXT_FIELD_SIZE);
     NameSurferGraph nameSurferGraph;
     NameSurferDataBase dataBase;
-    /* Method: init() */
 
     /**
      * This method has the responsibility for reading in the data base
@@ -42,12 +35,11 @@ public class NameSurfer extends SimpleProgram implements NameSurferConstants {
         add(nameSurferGraph);
     }
 
-    /* Method: actionPerformed(e) */
-
     /**
      * This class is responsible for detecting when the buttons are
-     * clicked, so you will have to define a method to respond to
-     * button actions.
+     * clicked. In case if button "Graph" pressed is calling findPerson()
+     * class otherwise calling NameSurferGraph.clear() class to clear
+     * the board.
      */
     public void actionPerformed(ActionEvent e) {
         if (Objects.equals(e.getActionCommand(), "Graph")) {
@@ -57,6 +49,10 @@ public class NameSurfer extends SimpleProgram implements NameSurferConstants {
         }
     }
 
+    /**
+     This method is responsible for finding the person
+     and pass it to the nameSurferGraph class
+     */
     private void findPerson(String name) {
         try {
             nameSurferGraph.addEntry(dataBase.findEntry(name));
@@ -65,6 +61,11 @@ public class NameSurfer extends SimpleProgram implements NameSurferConstants {
         }
     }
 
+    /**
+     This method does exactly the same as actionPerformed method with only
+     difference that it's listening for keyboard and after "Enter" pressed
+     calling findPerson() class.
+     */
     public void keyTyped(KeyEvent e) {
         if (e.getKeyChar() == '\n') {
             findPerson(jtf.getText().toLowerCase(Locale.ROOT));

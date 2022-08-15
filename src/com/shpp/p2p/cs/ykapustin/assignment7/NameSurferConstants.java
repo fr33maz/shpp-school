@@ -9,6 +9,9 @@ package com.shpp.p2p.cs.ykapustin.assignment7;
  */
 
 public interface NameSurferConstants {
+    /**
+     * The width of the text field
+     */
     public static final int TEXT_FIELD_SIZE = 30;
     /**
      * The width of the application window
@@ -29,9 +32,14 @@ public interface NameSurferConstants {
      * The first decade in the database
      */
     public static final int START_DECADE = 1900;
-
+    /**
+     * Created to optimize the rank to screen since
+     * screen might be big either small
+     */
     public static final double OPTIMIZATION = .001;
-
+    /**
+     * The size of line on the header and bottom
+     */
     public static final int HEAD_N_BOTTOM_STEP = 15;
 
     /**
