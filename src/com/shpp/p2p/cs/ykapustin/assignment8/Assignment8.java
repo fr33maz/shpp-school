@@ -7,13 +7,8 @@ import com.shpp.cs.a.graphics.WindowProgram;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
-public class assignment8 extends WindowProgram {
-    private final int N_RECTANGLES = 10;
-    private final int BOX_SIZE = 10;
-    private final int SPACE_BETWEEN_BOXES = 5;
-    private final int WIERD_CORRECTION = 12;
-    private final int APPLICATION_HEIGHT = 250;
-    private final int APPLICATION_WIDTH = 300;
+public class Assignment8 extends WindowProgram implements Constants {
+
 
     private final ArrayList<GObject> rectangle = new ArrayList<>();
     private final boolean[] element = new boolean[N_RECTANGLES];
