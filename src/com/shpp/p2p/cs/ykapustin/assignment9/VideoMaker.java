@@ -11,14 +11,13 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 
 public class VideoMaker {
 
     public static void main(String[] args) throws IOException {
         FileChannelWrapper
                 out = NIOUtils.writableFileChannel("C:\\Users\\monte\\shpp\\folderForVideo\\video.mp4");
-        ArrayList<BufferedImage> images = fillArrayList();
+        ArrayListOfBufferedImages images = fillArrayList();
         AWTSequenceEncoder encoder = new AWTSequenceEncoder(out, Rational.R(50, 1));
         for (Image image : images) {
             BufferedImage scaledImage = scaledImage(image);
@@ -36,8 +35,8 @@ public class VideoMaker {
         return bf;
     }
 
-    private static ArrayList<BufferedImage> fillArrayList() {
-        ArrayList<BufferedImage> images = new ArrayList<>();
+    private static ArrayListOfBufferedImages fillArrayList(){
+        ArrayListOfBufferedImages images = new ArrayListOfBufferedImages();
         int number = 0;
         while (true) {
             String path = "C:\\Users\\monte\\shpp\\snapshots\\";
