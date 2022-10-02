@@ -10,7 +10,26 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/shpp/srcs/shpp-cs-java-lib.jar!/" />
+          <root url="jar://$MODULE_DIR$/../srcs/shpp-cs-java-lib.jar!/" />
+          <root url="jar://$MODULE_DIR$/../jars/shpp-cs-java-lib.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../jars/jcodec-javase-0.2.5.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../jars/jcodec-0.2.5.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
